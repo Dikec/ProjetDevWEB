@@ -1,52 +1,113 @@
 {% extends 'base.html' %}
 {% block content %}
-      <h1 class="mt-5">
-      <em>curl</em>: “command line tool and library for transferring data with URLs”
-      </h1>
-      <p class="lead">HTTP debugging with curl</p>
+      
+   
+	<h1 class="mt-5">Inscription entreprises</h1>
+	<form action="/users" method="post">
+	<div class="form-group row" >
 
-      <p><em>curl</em> is a powerfull http (but not only) console client, it
-      helps to explore and debug http programing interfaces.</p>
+	    <label class="col-sm-2 col-form-label" for="staticName"> Nom de l'entreprise </label>
 
-      <p>Please RTFM:</p>
-      <ul>
-          <li><a href="https://curl.haxx.se/docs/manual.html">curl.haxx.se/docs/manual.html</a> !</li>
-          <li><a href="https://curl.haxx.se/docs/httpscripting.html">curl.haxx.se/docs/httpscripting.html</a></li>
-      </ul>
+	    <div class="col-sm-3">
+	    <input type="text" name="entreprise" id="entreprise" required placeholder="Nom de l'entreprise" >
+	    </div>
+	</div>
 
-      <p>Here are some common commands:</p>
+	<div class="form-group row" >
 
-      <ul>
-          <li>Request an URL and show the complete response Headers+Body:
-            <pre>curl -i --request GET http://127.0.0.1:8000/hello_world</pre>
-          </li>
-          <li>Request an URL and show response headers only:
-              <pre>curl --head http://127.0.0.1:8000/
-curl -i -X OPTIONS http://127.0.0.1:8000/</pre>
-          </li>
-          <li>Get some data:
-          <pre>curl -is "https://fr.wikipedia.org/w/index.php?search=Alan+Turing" | grep location</pre>
-          </li>
-          <li>Post some data (json payload):
-          <pre>curl -d '{"key1":"value1", "key2":"value2"}' -H "Content-Type: application/json" -X POST http://localhost:8800/data
-curl -d "@data.json" -X POST http://localhost:8800/data</pre>
-          </li>
-      </ul>
+	    <label class="col-sm-2 col-form-label" for="staticName"> Secteur d'activité </label>
 
-      <h1 class="mt-5">HTTP Statuses</h1>
-      <p class="lead">Refer online documentation if needed <a href="https://httpstatuses.com/">https://httpstatuses.com/</a></p>
-      <p>Most commons:</p>
-      <ul>
-        <li>202 Accepted</li>
-        <li>301 Moved Permanently</li>
-        <li>302 Found</li>
-        <li>400 Bad Request</li>
-        <li>401 Unauthorized</li>
-        <li>403 Forbidden</li>
-        <li>404 Not Found</li>
-        <li>500 Internal Server Error</li>
-        <li>501 Not Implemented</li>
-      </ul>
+	    <div class="col-sm-3">
+	    <input type="text" name="secteur" id="secteur" required placeholder="Secteur d'activité" >
+	    </div>
 
+	</div>
+	
+	<div class="form-group row" >
 
+	        <label class="col-sm-4 col-form-label" for="inputDoB"> Effectif de l'entreprise </label>
+	</div>
+
+	    <div class="col-sm-3">
+	
+	        <div class="form-group row" >	
+		
+	        <input type="radio" id="effectif" name="effectif" value="effectif">
+	        <label for="< 250"> < 250 (400€) </label>
+		
+		</div>
+		<div class="form-group row" >
+
+	        <input type="radio" id="group" name="effectif" value="effectif">
+	        <label for="> 250"> > 250 (600€) </label>
+	        </div>
+		
+            </div>
+	
+	
+	  	
+	<div class="form-group row" >
+	  	<label class="col-sm-4 col-form-label" for="inputDoB"> Voulez vous faire passer des simulations d'entretiens ?</label>
+	</div>
+	<div class="form-group row" >
+	  	<div class="col-sm-3">
+		    <input type="radio" id="entretien" name="entretien" value="Oui">
+		    <label for="Oui">Oui</label>
+		    <input type="radio" id="entretien" name="entretien" value="Non">
+		    <label for="Non">Non</label>	    
+		</div>
+	</div>	
+
+	<div class="form-group row" >
+	  	<label class="col-sm-4 col-form-label" for="inputDoB"> Voulez vous faire participer au forum ?</label>
+	</div>
+	<div class="form-group row" >
+	  	<div class="col-sm-3">
+		    <input type="radio" id="forum" name="forum" value="Oui">
+		    <label for="Oui">Oui</label>
+		    <input type="radio" id="forum" name="forum" value="Non">
+		    <label for="Non">Non</label>	    
+		</div>
+	</div>	
+
+	<div class="form-group row" >
+
+	    <label class="col-sm-2 col-form-label" for="staticName"> Nom et prénom du responsable de l'évenement </label>
+
+	    <div class="col-sm-3">
+	    <input type="text" name="responsable" id="responsable" required placeholder="Nom Prénom" >
+	    </div>
+	</div>
+
+	<div class="form-group row" >
+
+	    <label class="col-sm-2 col-form-label" for="staticName"> Adresse mail </label>
+
+	    <div class="col-sm-3">
+	    <input type="mail" name="mail" id="mail" required placeholder="Adresse mail" >
+	    </div>
+
+	</div>
+
+	
+
+	<div class="form-group row" >
+	  	<label class="col-sm-4 col-form-label" for="inputDoB"> Télécharger le formulaire d'inscription </label>
+	</div>
+
+	<div class="form-group row" >
+	  	<label class="col-sm-4 col-form-label" for="inputDoB"> Déposez le formulaire d'inscription </label>
+	</div>
+
+	<div class="form-group row" >
+	  	<label class="col-sm-4 col-form-label" for="inputDoB"> Déposez le logo de l'entreprise </label>
+	</div>
+
+	<div class="form-group row" >
+		<div class="col-sm-3">
+		<input type="submit" class="btn btn-primary" value="Submit">
+	        </div>
+	</div>
+	</form>
+	
 {% endblock %}
