@@ -1,32 +1,87 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1 class="mt-5">BioInfo 4A Web development</h1>
-  <p class="lead">An introduction to web development with <a
-  href="https://www.python.org">Python3</a> &amp; <a
-  href="http://flask.pocoo.org/docs/1.0/quickstart/">Flask</a> micro framework
-  (and <a href="https://getbootstrap.com/">bootstrap</a>)</p>
-  <article id="intro" class="to_hide">
-    <div><hr /></div>
-    <h2 class="nocount">Get the sources</h2>
-      <div class="alert alert-primary" role="alert">
-        <h4 class="nocount"><a href="https://forge.p2chpd.univ-lyon1.fr/geoffroy.berret/PrograWebSources" class="font-weight-bold">forge.p2chpd.univ-lyon1.fr/geoffroy.berret/PrograWebSources</a></h4>
-        <h4 class="nocount"><code class="font-weight-bold">git clone https://forge.p2chpd.univ-lyon1.fr/geoffroy.berret/PrograWebSources.git</code></h4>
-      </div>
-    <h2 class=nocount>Then setup the environment</h2>
-      <p>Open a terminal an run the following commands:<br />
-      <pre class="text-monospace"><code>cd Découverte_Flask && ./do
-./do serve</code></pre>
-      <p>Then you can access the server in your browser at: <a href="http://localhost:8000/">http://localhost:8000/</a></p>
-      <p>You also have access to a python shell to explore your code and Flask objects: <code>./do shell</code></p>
-  </article>
-  <hr />
+      
+   
+	<h1 class="mt-5">Inscription étudiants</h1>
+	<form action="/users" method="post">
+	<div class="form-group row" >
 
-  <ul>
-    <li><a href="{{url_for('flaskintro')}}">Flask introduction</a></li>
-    <li><a href="{{url_for('indexapi')}}">Building API endpoints</a></li>
-  </ul>
+	    <label class="col-sm-2 col-form-label" for="staticName"> Nom </label>
+
+	    <div class="col-sm-3">
+	    <input type="text" name="name" id="name" required placeholder="Nom" >
+	    </div>
+	</div>
+
+	<div class="form-group row" >
+
+	    <label class="col-sm-2 col-form-label" for="staticName"> Prénom </label>
+
+	    <div class="col-sm-3">
+	    <input type="text" name="prénom" id="prénom" required placeholder="Prénom" >
+	    </div>
+
+	</div>
+	
+	<div class="form-group row" >
+
+	    <div class="col-sm-3">
+
+	        <div>	
+	        <input type="radio" id="group" name="group" value="3BIM">
+	        <label for="3BIM">3BIM</label>
+	        <input type="radio" id="group" name="group" value="3BB">
+	        <label for="3BB">3BB</label>
+	        </div>
+            </div>
+	</div>
+	    
+	<div class="form-group row" >
+	    
+	    <div class="col-sm-3">
+	        <div>	
+	        <input type="radio" id="group" name="group" value="4BIM">
+	        <label for="4BIM">4BIM</label>
+	        <input type="radio" id="group" name="group" value="4BB">
+	        <label for="4BB">4BB</label>
+	        </div>
+            </div>
+	</div>
+        
+	<div class="form-group row" >
+            <div class="col-sm-3">
+            	<div>	
+	    	<input type="radio" id="group" name="group" value="5BIM">
+	    	<label for="5BIM">5BIM</label>
+	    	<input type="radio" id="group" name="group" value="5BB">
+	    	<label for="5BB">5BB</label>
+	    	</div>
+	    </div>
+	</div>
+	  
 
 
+	<div class="form-group row" >
+	  	<label class="col-sm-4 col-form-label" for="inputDoB"> Voulez vous passer un entretien ?</label>
+	</div>
+	<div class="form-group row" >
+	  	<div class="col-sm-3">
+		    <input type="radio" id="entretien" name="entretien" value="Oui">
+		    <label for="Oui">Oui</label>
+		    <input type="radio" id="entretien" name="entretien" value="Non">
+		    <label for="Non">Non</label>	    
+		</div>
+	</div>	
+
+	<div class="form-group row" >
+	  	<label class="col-sm-4 col-form-label" for="inputDoB"> Déposez votre C.V</label>
+	</div>
+
+	<div class="form-group row" >
+		<div class="col-sm-3">
+		<input type="submit" class="btn btn-primary" value="Submit">
+	        </div>
+	</div>
+	</form>
+	
 {% endblock %}
-
-<!-- vim: set filetype=html spell spelllang=en: -->
