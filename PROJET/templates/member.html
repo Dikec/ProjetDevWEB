@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+      
+      <div class="alert alert-info" role="alert">
+        <p class="lead">Use Jinja templating system to produce a list of users in <code>app.USERS</code> object.<br />
+        Follow the documentation: <a href="https://flask.palletsprojects.com/en/1.1.x/quickstart/#rendering-templates">flask.palletsprojects.com/en/1.1.x/quickstart/#rendering-templates</a>.
+      </div>
+	<h1 class="mt-5">User : {{name}}</h1>
+	<div class = list>
+	{% for caracteristique in info %}
+  		<li>{{caracteristique}} : {{info[caracteristique]}}</li>
+		
+	{% endfor %}
+	</div>
+	
+{% endblock %}
