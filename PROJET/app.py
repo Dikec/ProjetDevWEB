@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 # coding: utf-8
+
+from flask import Flask, Blueprint, request, flash
 # ./img/photo2.jpg"
-from flask import Flask, Blueprint
 from flask import abort, request, make_response
 from flask import render_template, redirect, url_for
-#from flask_sqlalchemy import SQLAlchemy
-#from flask_login import login_required, current_user
+from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager, login_required, current_user, login_user, logout_user, UserMixin
+from werkzeug.security import generate_password_hash, check_password_hash
 
 from data import USERS,STUDENT
 from data import COMPANY
@@ -13,40 +15,43 @@ from data import COMPANY
 from api import SITE_API
 
 import json 
-HELLO_STRINGS = {
-        "cn": "你好世界\n",
-        "du": "Hallo wereld\n",
-        "en": "Hello world\n",
-        "fr": "Bonjour monde\n",
-        "de": "Hallo Welt\n",
-        "gr": "γειά σου κόσμος\n",
-        "it": "Ciao mondo\n",
-        "jp": "こんにちは世界\n",
-        "kr": "여보세요 세계\n",
-        "pt": "Olá mundo\n",
-        "ru": "Здравствуй, мир\n",
-        "sp": "Hola mundo\n"
-}
+
+
 
 app = Flask(__name__)
-# Add the API
+app.config['SECRET_KEY'] = '9OLWxND4o83j4K4iuopO'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
+    # Add the api
 app.register_blueprint(SITE_API)
 
-#from __init__ import db
+# init SQLAlchemy so we can use it later in our models
+db = SQLAlchemy()
 
-@app.route('/hello_world')
-def hello_world():
-    app.logger.debug('Hello world')
-    resp=make_response('Hello world\n')
-    #Set extra reponse headers
-    resp.headers['X-Less']='Is More'
-    resp.headers['Content-Type']='text/plain;charset=utf-8'
-    #If accept language is send by the client
-    if ('Accept-Language') in request.headers:
-        if request.headers['Accept-language'][:2] in HELLO_STRINGS:
-            resp.headers.add('Content-language',request.headers['Accept-language'])
-            resp.data = HELLO_STRINGS.get(request.headers['Accept-language'][:2])
-    return resp
+def create_app():
+    
+    db.init_app(app)
+
+    login_manager = LoginManager()
+    login_manager.login_view = 'login'
+    login_manager.init_app(app)
+
+    @login_manager.user_loader
+    def load_user(user_id):
+        # since the user_id is just the primary key of our user table, use it in the query for the user
+        return Admin.query.get(int(user_id))
+
+     # blueprint for auth routes in our app
+    #app.register_blueprint(app_blueprint)
+
+    return app
+
+db.create_all(app=create_app())
+
+class Admin(UserMixin,db.Model):
+    id = db.Column(db.Integer, primary_key=True) # primary keys are required by SQLAlchemy
+    email = db.Column(db.String(100), unique=True)
+    password = db.Column(db.String(100))
+    name = db.Column(db.String(1000))
 
 @app.route('/help')
 def help():
@@ -57,23 +62,6 @@ def index():
     app.logger.debug('serving root URL /')
     return render_template('Presentation.html')
 
-@app.route('/flask')
-def flaskintro():
-    app.logger.debug('serving root URL /')
-    return render_template('flask.html')
-
-
-@app.route('/index')
-def indexapi():
-    return render_template('index.html')
-
-
-@app.route('/about')
-def about():
-    from datetime import datetime
-    today = datetime.today()
-    app.logger.debug('about')
-    return render_template('about.html', date=today,page_title='Je suis le nouveau titre')
 
 @app.route('/Etudiants', methods=['GET', 'POST'])
 def Etudiants():
@@ -119,9 +107,42 @@ def Contact():
 def Presentation():
     return render_template('Presentation.html')
 
-@app.route('/Login')
-def Login():
-    return render_template('Login.html')
+@app.route('/login')
+def login():
+    return render_template("login.html")
+
+@app.route('/login', methods=['POST'])
+def login_post():
+    email = request.form.get('email')
+    password = request.form.get('password')
+    remember = True if request.form.get('remember') else False
+
+    user = Admin.query.filter_by(email=email).first()
+    if not user :
+        flash ("Pas de monde")
+    if not check_password_hash(user.password, password):
+        flash("problème de password")
+
+    # check if user actually exists
+    # take the user supplied password, hash it, and compare it to the hashed password in database
+    if not user or password != user.password:
+        flash("L'identifiant ou le mot de passe n'est pas reconnu")
+        return redirect(url_for('login')) # if user doesn't exist or password is wrong, reload the page
+
+    # if the above check passes, then we know the user has the right credentials
+    login_user(user,remember=remember)
+    return render_template('Presentation.html')
+
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('login'))
+
+@app.route('/admin')
+@login_required
+def admin():
+    return render_template('admin.html')
 
 with open('data.json') as js:
     DATA = json.load(js)
