@@ -28,5 +28,21 @@
     "computer science": [0, 1, 2, 3],
     "physics": [5],
     "biology": [6]
-    }
+},
+  "STUDENT" : [
+    {"id": 0,
+     "name": "Doe", "prénom": "John",
+     "group": "3BIM", "entretien": "Non" },
+    {"id": 1,
+     "name": "Doe", "prénom": "Marie",
+     "group": "3BB", "entretien": "Oui" }
+],
+  "COMPANY" : [
+    {"id": 0, "name" : "Best_company", "secteur" : "Spy", 
+        "effectif" : "sup250", "entretien" : "Oui", "forum" : "Oui",
+        "responsable" : "Doe John", "mail": "john@gmail.com"},
+    {"id": 1, "name" : "Best_company", "secteur" : "Spy", 
+        "effectif" : "sup250", "entretien" : "Oui", "forum" : "Oui",
+        "responsable" : "Doe John", "mail": "john@gmail.com"}
+]
 }

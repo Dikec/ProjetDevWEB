@@ -7,7 +7,8 @@ from flask import render_template, redirect, url_for
 #from flask_sqlalchemy import SQLAlchemy
 #from flask_login import login_required, current_user
 
-from data import USERS
+from data import USERS,STUDENT
+from data import COMPANY
 # Set API dev in an another file
 from api import SITE_API
 
@@ -76,14 +77,38 @@ def about():
 
 @app.route('/Etudiants', methods=['GET', 'POST'])
 def Etudiants():
-    result = request.args
-    n = result['name']
-    p = result['prénom']
-    g = result['group']
+    if request.method=='POST':
+        result = request.form
+        print(result)
+        dico = {}
+        dico['id'] = len(STUDENT)
+        dico["name"] = result['name']
+        dico["prénom"] = result['prénom']
+        dico["group"] = result['group'] # 3BIM ou 3BB ou ...
+        dico['entretien'] = result['entretien'] # entretien : oui ou non
+
+        with open('student.json', 'r') as json_file: 
+            DATA = json.load(json_file)
+            DATA['STUDENT'].append(dico) # python object to be appended.
+        with open('student.json', 'w') as js:
+            json.dump(DATA, js, indent=2)
     return render_template('Etudiants.html')
 
-@app.route('/Entreprises')
+@app.route('/Entreprises', methods=['GET', 'POST'])
 def Entreprises():
+    if request.method=='POST':
+        result = request.form
+        print(result)
+        dico = {}
+        dico['name'] = result['name']
+        dico['secteur'] = result['secteur']
+        dico['effectif'] = result['effectif'] # inf250 ou sup250
+        dico['entretien'] = result['entretien'] # entretien : oui ou non
+        dico['forum'] = result['forum'] # forum : oui ou non
+        dico['responsable'] = result['responsable'] # name of resp
+        dico['mail'] = result['mail'] # adresse mail format
+        dico['id'] = len(COMPANY)
+        COMPANY.append(dico)
     return render_template('Entreprises.html')
 
 @app.route('/Contact')
