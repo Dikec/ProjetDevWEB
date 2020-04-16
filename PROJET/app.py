@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 # coding: utf-8
 
-from flask import Flask
+from flask import Flask, Blueprint
 from flask import abort, request, make_response
 from flask import render_template, redirect, url_for
+#from flask_sqlalchemy import SQLAlchemy
+#from flask_login import login_required, current_user
 
 from data import USERS
 # Set API dev in an another file
@@ -29,6 +31,7 @@ app = Flask(__name__)
 # Add the API
 app.register_blueprint(SITE_API)
 
+#from __init__ import db
 
 @app.route('/hello_world')
 def hello_world():
