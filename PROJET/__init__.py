@@ -5,13 +5,9 @@ from flask_sqlalchemy import SQLAlchemy
 # init SQLAlchemy so we can use it later in our models
 db = SQLAlchemy()
 
-from .models import Admin
+from models import Admin
 from flask_login import LoginManager
 def create_app():
-    app = Flask(__name__)
-
-    app.config['SECRET_KEY'] = '9OLWxND4o83j4K4iuopO'
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
 
     db.init_app(app)
 
@@ -25,7 +21,7 @@ def create_app():
         return Admin.query.get(int(user_id))
 
      # blueprint for auth routes in our app
-    from .auth import auth as auth_blueprint
-    app.register_blueprint(auth_blueprint)
+    from app import app as app_blueprint
+    app.register_blueprint(app_blueprint)
 
     return app

@@ -3,13 +3,13 @@
       
    
 	<h1 class="mt-5">Inscription entreprises</h1>
-	<form action="/users" method="post">
+	<form action="/Entreprises" method="post">
 	<div class="form-group row" >
 
 	    <label class="col-sm-2 col-form-label" for="staticName"> Nom de l'entreprise </label>
 
 	    <div class="col-sm-3">
-	    <input type="text" name="entreprise" id="entreprise" required placeholder="Nom de l'entreprise" >
+	    <input type="text" name="name" id="name" required placeholder="Nom de l'entreprise" >
 	    </div>
 	</div>
 
@@ -32,13 +32,13 @@
 	
 	        <div class="form-group row" >	
 		
-	        <input type="radio" id="effectif" name="effectif" value="effectif">
-	        <label for="< 250"> < 250 (400€) </label>
+	        <input type="radio" id="effectif" name="effectif" value="inf250">
+	        <label for="< 250"> &#60; 250 (400€) </label>
 		
 		</div>
 		<div class="form-group row" >
 
-	        <input type="radio" id="group" name="effectif" value="effectif">
+	        <input type="radio" id="group" name="effectif" value="sup250">
 	        <label for="> 250"> > 250 (600€) </label>
 	        </div>
 		
@@ -110,7 +110,7 @@
 
 	<div class="form-group row" >
 		<div class="col-sm-3">
-		<input type="submit" class="btn btn-primary" value="Submit">
+		<input type="submit" class="btn btn-primary" value="Envoyer">
 	        </div>
 	</div>
 	</form>
