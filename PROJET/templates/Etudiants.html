@@ -3,86 +3,89 @@
       
    
 	<h1 class="mt-5">Inscription étudiants</h1>
-	<form action="/users" method="post">
-	<div class="form-group row" >
+	<form action="/Results" method="post">
+	    <div class="form-group row" >
 
-	    <label class="col-sm-2 col-form-label" for="staticName"> Nom </label>
+    	    <label class="col-sm-2 col-form-label" for="staticName"> Nom </label>
 
-	    <div class="col-sm-3">
-	    <input type="text" name="name" id="name" required placeholder="Nom" >
-	    </div>
-	</div>
+    	    <div class="col-sm-3">
+    	    <input type="text" name="name" id="name" required placeholder="Nom" >
+    	    </div>
+    	</div>
 
-	<div class="form-group row" >
+	    <div class="form-group row" >
 
-	    <label class="col-sm-2 col-form-label" for="staticName"> Prénom </label>
+	        <label class="col-sm-2 col-form-label" for="staticName"> Prénom </label>
 
-	    <div class="col-sm-3">
-	    <input type="text" name="prénom" id="prénom" required placeholder="Prénom" >
-	    </div>
+	        <div class="col-sm-3">
+	        <input type="text" name="prénom" id="prénom" required placeholder="Prénom" >
+	        </div>
 
-	</div>
+    	</div>
 	
-	<div class="form-group row" >
+	    <div class="form-group row" >
 
-	    <div class="col-sm-3">
+	        <div class="col-sm-3">
 
-	        <div>	
-	        <input type="radio" id="group" name="group" value="3BIM">
-	        <label for="3BIM">3BIM</label>
-	        <input type="radio" id="group" name="group" value="3BB">
-	        <label for="3BB">3BB</label>
-	        </div>
+	            <div>	
+	            <input type="radio" id="group" name="group" value="3BIM">
+	            <label for="3BIM">3BIM</label>
+	            <input type="radio" id="group" name="group" value="3BB">
+	            <label for="3BB">3BB</label>
+	            </div>
             </div>
-	</div>
+	    </div>
 	    
-	<div class="form-group row" >
+	    <div class="form-group row" >
 	    
-	    <div class="col-sm-3">
-	        <div>	
-	        <input type="radio" id="group" name="group" value="4BIM">
-	        <label for="4BIM">4BIM</label>
-	        <input type="radio" id="group" name="group" value="4BB">
-	        <label for="4BB">4BB</label>
-	        </div>
+	        <div class="col-sm-3">
+	            <div>	
+	            <input type="radio" id="group" name="group" value="4BIM">
+	            <label for="4BIM">4BIM</label>
+	            <input type="radio" id="group" name="group" value="4BB">
+	            <label for="4BB">4BB</label>
+	            </div>
             </div>
-	</div>
+	    </div>
         
-	<div class="form-group row" >
+	    <div class="form-group row" >
             <div class="col-sm-3">
             	<div>	
-	    	<input type="radio" id="group" name="group" value="5BIM">
-	    	<label for="5BIM">5BIM</label>
-	    	<input type="radio" id="group" name="group" value="5BB">
-	    	<label for="5BB">5BB</label>
-	    	</div>
-	    </div>
-	</div>
+    	    	<input type="radio" id="group" name="group" value="5BIM">
+    	    	<label for="5BIM">5BIM</label>
+    	    	<input type="radio" id="group" name="group" value="5BB">
+    	    	<label for="5BB">5BB</label>
+    	    	</div>
+    	    </div>
+    	</div>
 	  
 
 
-	<div class="form-group row" >
-	  	<label class="col-sm-4 col-form-label" for="inputDoB"> Voulez vous passer un entretien ?</label>
-	</div>
-	<div class="form-group row" >
-	  	<div class="col-sm-3">
-		    <input type="radio" id="entretien" name="entretien" value="Oui">
-		    <label for="Oui">Oui</label>
-		    <input type="radio" id="entretien" name="entretien" value="Non">
-		    <label for="Non">Non</label>	    
-		</div>
-	</div>	
+    	<div class="form-group row" >
+    	  	<label class="col-sm-4 col-form-label" for="inputDoB"> Voulez vous passer un entretien ?</label>
+    	</div>
+    	<div class="form-group row" >
+    	  	<div class="col-sm-3">
+    		    <input type="radio" id="entretien" name="entretien" value="Oui">
+    		    <label for="Oui">Oui</label>
+    		    <input type="radio" id="entretien" name="entretien" value="Non">
+    		    <label for="Non">Non</label>	    
+    		</div>
+    	</div>	
 
-	<div class="form-group row" >
-	  	<label class="col-sm-4 col-form-label" for="inputDoB"> Déposez votre C.V</label>
-		<input type="file" name="C.V"/>
-	</div>
+    	<div class="form-group row" >
+    	  	<label class="col-sm-4 col-form-label" for="inputDoB"> Déposez votre C.V</label>
+    		<input type="file" name="C.V"/>
+    	</div>
 
-	<div class="form-group row" >
-		<div class="col-sm-3">
-		<input type="submit" class="btn btn-primary" value="Submit">
-	        </div>
-	</div>
+    	<div class="form-group row" >
+    		<div class="col-sm-3">
+        		<input type="submit" class="btn btn-primary" value="Envoyer">
+  	        </div>
+	    </div>
 	</form>
+    <body>
+        <p>Bonjour {{prénom}} {{name}}, j'espère que vous allez bien.</p>
+	</body>
 	
 {% endblock %}
