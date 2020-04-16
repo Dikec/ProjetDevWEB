@@ -2,6 +2,7 @@
 # coding: utf-8
 
 from flask import Flask, Blueprint, request, flash
+# ./img/photo2.jpg"
 from flask import abort, request, make_response
 from flask import render_template, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
@@ -60,8 +61,13 @@ def index():
     app.logger.debug('serving root URL /')
     return render_template('Presentation.html')
 
-@app.route('/Etudiants')
+
+@app.route('/Etudiants', methods=['GET', 'POST'])
 def Etudiants():
+    result = request.args
+    n = result['name']
+    p = result['prénom']
+    g = result['group']
     return render_template('Etudiants.html')
 
 @app.route('/Entreprises')
