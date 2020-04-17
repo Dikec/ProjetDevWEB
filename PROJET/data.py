@@ -13,6 +13,8 @@ with open('data.json') as js:
     DATA = json.load(js)
     USERS = DATA.get('USERS')
     FIELDS = DATA.get('FIELDS')
+    STUDENT = DATA.get('STUDENT')
+    COMPANY = DATA.get('COMPANY')
 
 def get_fields(u_id):
     for field, ids in FIELDS.items():
