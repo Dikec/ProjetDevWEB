@@ -8,8 +8,7 @@ from flask import render_template, redirect, url_for
 from flask_login import login_required, current_user, login_user, logout_user
 from werkzeug.security import generate_password_hash, check_password_hash
 
-from data import USERS,STUDENT
-from data import COMPANY
+from data import USERS,COMPANY, STUDENT
 
 import json 
 

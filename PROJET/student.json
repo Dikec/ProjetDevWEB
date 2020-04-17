@@ -3,28 +3,42 @@
     {
       "id": 0,
       "name": "Doe",
-      "pr\u00e9nom": "John",
+      "prenom": "John",
       "group": "3BIM",
       "entretien": "Non"
     },
     {
       "id": 1,
       "name": "Doe",
-      "pr\u00e9nom": "Marie",
+      "prenom": "Marie",
       "group": "3BB",
       "entretien": "Oui"
     },
     {
       "id": 2,
       "name": "dd",
-      "pr\u00e9nom": "ss",
+      "prenom": "ss",
       "group": "3BIM",
       "entretien": "Oui"
+    },
+    {
+      "id": 3,
+      "name": "ss",
+      "prenom": "ss",
+      "group": "4BB",
+      "entretien": "Non"
     }
   ],
-  "id": 2,
-  "name": "ss",
-  "pr\u00e9nom": "aa",
-  "group": "4BB",
-  "entretien": "Oui"
+  "COMPANY": [
+    {
+      "id": 0,
+      "name": "x",
+      "secteur": "x",
+      "effectif": "inf250",
+      "entretien": "Non",
+      "forum": "Oui",
+      "responsable": "x",
+      "mail": "x"
+    }
+  ]
 }
