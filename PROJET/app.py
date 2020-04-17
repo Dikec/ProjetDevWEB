@@ -5,52 +5,16 @@ from flask import Flask, Blueprint, request, flash
 # ./img/photo2.jpg"
 from flask import abort, request, make_response
 from flask import render_template, redirect, url_for
-from flask_sqlalchemy import SQLAlchemy
-from flask_login import LoginManager, login_required, current_user, login_user, logout_user, UserMixin
+from flask_login import login_required, current_user, login_user, logout_user
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from data import USERS
-# Set API dev in an another file
-from api import SITE_API
 
 import json 
 
-
-
-app = Flask(__name__)
-app.config['SECRET_KEY'] = '9OLWxND4o83j4K4iuopO'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
-    # Add the api
-app.register_blueprint(SITE_API)
-
-# init SQLAlchemy so we can use it later in our models
-db = SQLAlchemy()
-
-def create_app():
-    
-    db.init_app(app)
-
-    login_manager = LoginManager()
-    login_manager.login_view = 'login'
-    login_manager.init_app(app)
-
-    @login_manager.user_loader
-    def load_user(user_id):
-        # since the user_id is just the primary key of our user table, use it in the query for the user
-        return Admin.query.get(int(user_id))
-
-     # blueprint for auth routes in our app
-    #app.register_blueprint(app_blueprint)
-
-    return app
+from __init__ import create_app, db, app, Admin
 
 db.create_all(app=create_app())
-
-class Admin(UserMixin,db.Model):
-    id = db.Column(db.Integer, primary_key=True) # primary keys are required by SQLAlchemy
-    email = db.Column(db.String(100), unique=True)
-    password = db.Column(db.String(100))
-    name = db.Column(db.String(1000))
 
 @app.route('/help')
 def help():
@@ -93,10 +57,6 @@ def login_post():
     remember = True if request.form.get('remember') else False
 
     user = Admin.query.filter_by(email=email).first()
-    if not user :
-        flash ("Pas de monde")
-    if not check_password_hash(user.password, password):
-        flash("problème de password")
 
     # check if user actually exists
     # take the user supplied password, hash it, and compare it to the hashed password in database
