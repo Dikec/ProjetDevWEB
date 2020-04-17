@@ -37,10 +37,17 @@
     },
     {
       "id": 5,
-      "name": "s",
+      "name": "a",
       "prenom": "x",
       "group": "3BB",
       "entretien": "Non"
+    },
+    {
+      "id": 6,
+      "name": "Jean",
+      "prenom": "Jeanne",
+      "group": "5BIM",
+      "entretien": "Oui"
     }
   ],
   "COMPANY": [
@@ -53,6 +60,16 @@
       "forum": "Oui",
       "responsable": "x",
       "mail": "x"
+    },
+    {
+      "id": 1,
+      "name": "Sanofi",
+      "secteur": "Biom\u00e9dical",
+      "effectif": "sup250",
+      "entretien": "Oui",
+      "forum": "Oui",
+      "responsable": "Philipe Lejeune",
+      "mail": "p.lejeune@sanofi.net"
     }
   ]
 }

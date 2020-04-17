@@ -89,6 +89,7 @@ def login_post():
 
     user = Admin.query.filter_by(email=email).first()
 
+
     # check if user actually exists
     # take the user supplied password, hash it, and compare it to the hashed password in database
     if not user or password != user.password:
@@ -97,7 +98,7 @@ def login_post():
 
     # if the above check passes, then we know the user has the right credentials
     login_user(user,remember=remember)
-    return render_template('Presentation.html')
+    return redirect(url_for('profile'))
 
 @app.route('/logout')
 @login_required
@@ -105,35 +106,37 @@ def logout():
     logout_user()
     return redirect(url_for('login'))
 
-@app.route('/admin')
+@app.route('/profile')
 @login_required
-def admin():
-    return render_template('admin.html')
+def profile():
+    return render_template('profile.html',name=current_user.name)
 
-with open('data.json') as js:
+with open('donnees.json') as js:
     DATA = json.load(js)
-    USERS = DATA.get('USERS')
-    FIELDS = DATA.get('FIELDS')
+    STUDENT = DATA.get('STUDENT')
+    COMPANY = DATA.get('COMPANY')
 
-@app.route('/users',methods=['POST', 'GET'])
-@app.route('/users/<username>/')
-def users(username=None):
-    names = []
-    if request.method == 'POST':
-        dico = {}
-        dico["name"]= request.form['name']
-        dico["gender"]= request.form['gender']
-        dico["birth"]= request.form['birth']
-        dico["id"]= len(USERS)
-        USERS.append(dico)
-    for user in USERS :
-        names.append(user["name"])
-    if not username:
-        return render_template('users.html',names=names)
-    for i in range(0,len(names)):
-        if (names[i]==username) :
-            return render_template('member.html',info=USERS[i],name=username)
-       
+@app.route('/admin',methods=['GET'])
+@app.route('/admin/<lien>/')
+@login_required
+def admin(lien=None):
+    etudiant=[]
+    entreprise=[]
+    for student in STUDENT:
+        nom=student["name"]
+        prenom=student["prenom"]
+        nom_complet=nom+" "+prenom
+        etudiant.append(nom_complet)
+    for company in COMPANY:
+        entreprise.append(company["name"])
+    if not lien:
+        return render_template('admin.html',etudiants=etudiant,entreprises=entreprise)
+    for i in range(0,len(etudiant)):
+        if (etudiant[i]==lien) :
+            return render_template('membre.html',info=STUDENT[i],name=lien)
+    for i in range(0,len(company)):
+        if (entreprise[i]==lien) :
+            return render_template('membre.html',info=COMPANY[i],name=lien)
 
 
 @app.route('/search/', methods=['GET'])

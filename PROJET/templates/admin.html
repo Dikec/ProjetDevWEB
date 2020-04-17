@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="title">
+	Informations des utilisateurs de la page WEB
+</h1>
+<br>
+<h2>
+	Table des Etudiants
+</h2>
+<ul>
+	{% for item in etudiants %}
+    <li><a href="/admin/{{item}}"> {{item}}</a></li>
+    {% endfor %}
+</ul>
+<br>
+<h2>
+	Table des Sociétés
+</h2>
+<ul>
+	{% for item in entreprises %}
+    <li><a href="/admin/{{item}}"> {{item}}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}
