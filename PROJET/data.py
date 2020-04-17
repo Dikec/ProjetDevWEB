@@ -14,7 +14,7 @@ with open('data.json') as js:
     USERS = DATA.get('USERS')
     FIELDS = DATA.get('FIELDS')
 
-with open('student.json') as js:
+with open('donnees.json') as js:
     DATA = json.load(js)
     STUDENT = DATA.get('STUDENT')
     COMPANY = DATA.get('COMPANY')

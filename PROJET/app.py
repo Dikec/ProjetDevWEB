@@ -38,10 +38,10 @@ def Etudiants():
         dico["group"] = result['group'] # 3BIM ou 3BB ou ...
         dico['entretien'] = result['entretien'] # entretien : oui ou non
 
-        with open('student.json', 'r') as json_file: 
+        with open('donnees.json', 'r') as json_file: 
             DATA = json.load(json_file)
             DATA['STUDENT'].append(dico) # python object to be appended.
-        with open('student.json', 'w') as js:
+        with open('donnees.json', 'w') as js:
             json.dump(DATA, js, indent=2)
     return render_template('Etudiants.html')
 
@@ -60,10 +60,10 @@ def Entreprises():
         dico['responsable'] = result['responsable'] # name of resp
         dico['mail'] = result['mail'] # adresse mail format
 
-        with open('student.json', 'r') as json_file: 
+        with open('donnees.json', 'r') as json_file: 
             DATA = json.load(json_file)
             DATA['COMPANY'].append(dico) # python object to be appended.
-        with open('student.json', 'w') as js:
+        with open('donnees.json', 'w') as js:
             json.dump(DATA, js, indent=2)
     return render_template('Entreprises.html')
 
