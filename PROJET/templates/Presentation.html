@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
-      
-      <div class="form">
-        <p>	
-        Le Forum Rencontres Biosciences (ou « RBS », jeu de mots reprenant le sigle bien connu en biologie de « Ribosome Binding Site ») est l'occasion pour les étudiants du département Biosciences de l'INSA de Lyon de rencontrer les représentants de différentes entreprises en lien avec la biologie. Durant cette journée, simulations d'entretiens et discussions cordiales sont au rendez-vous. L'objectif est de réaliser un rapprochement durable entre les étudiants et les entreprises du secteur.
 
-      </div>
+<div style="text-align: center">
+    <h1 class="mt-5">Le Forum Rencontres Biosciences, qu'est-ce ? </h1>
+</div>
+        <p>	
+        Le Forum Rencontres Biosciences (ou « RBS », jeu de mots reprenant le sigle bien connu en biologie de « Ribosome Binding Site ») est l'occasion pour les étudiants du département Biosciences de l'INSA de Lyon de rencontrer les représentants de différentes entreprises en lien avec la biologie. Durant cette journée, simulations d'entretiens et discussions cordiales sont au rendez-vous. L'objectif est de réaliser un rapprochement durable entre les étudiants et les entreprises du secteur.</p>
+
 	<div class="form-group row" >
 	  	
 		<a href="/pdf/Plaquette_Biosciences.pdf" download> Maquette du département BIOSCIENCES </a>
@@ -16,6 +17,7 @@
 
 		<a href="/pdf/programme_RBS_2019.pdf" download> Programme du forum   </a>
 	</div>
-
-	<img src="{{url_for('static', filename='photo2.jpg')}}" alt="Présentation des projets effectuee au cours de l'annee aux entreprises" width="500" height=auto align="middle">
+    <div style="text-align: center">
+	    <img src="{{url_for('static', filename='photo2.jpg')}}" alt="Presentation" width="50%" height=auto align="middle">
+    </div>
 {% endblock %}

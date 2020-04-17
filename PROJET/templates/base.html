@@ -22,7 +22,7 @@
     <header>
       <!-- Fixed navbar -->
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark navbar-inner">
-        <a class="navbar-brand" href="{{ url_for('index') }}"><img src="{{url_for('static', filename='groupe.jpg')}}" height ="20"> </a>
+        <a class="navbar-brand" href="{{ url_for('index') }}"><img src="{{url_for('static', filename='groupe.jpg')}}" height ="50"> </a>
         <a class="navbar-brand" href="{{ url_for('Presentation') }}">Rencontres Biosciences</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -49,6 +49,12 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{ url_for('help') }}">Nous contacter</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled">|</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('Contact') }}">Contact</a>
             </li>
             <li class="nav-item">
               <a class="nav-link disabled">|</a>
