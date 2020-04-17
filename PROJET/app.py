@@ -3,7 +3,7 @@
 
 from flask import Flask, Blueprint, request, flash
 # ./img/photo2.jpg"
-from flask import abort, request, make_response
+from flask import abort, request, make_response, send_from_directory
 from flask import render_template, redirect, url_for
 from flask_login import login_required, current_user, login_user, logout_user
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -70,6 +70,11 @@ def Entreprises():
         return render_template('Remerciement.html', name = result['name'])
     return render_template('Entreprises.html')
 
+@app.route('/Entreprises')
+def download_file():
+	path = "/pdf/Formulaire_inscription_2019.pdf"
+	return send_file(path, as_attachment=True)
+
 @app.route('/Contact')
 def Contact():
     return render_template('Contact.html')
@@ -77,6 +82,11 @@ def Contact():
 @app.route('/Presentation')
 def Presentation():
     return render_template('Presentation.html')
+
+@app.route('/pdf/<path:filename>', methods=['GET', 'POST'])
+def download(filename):
+    uploads = os.path.join(current_app.root_path, app.config['UPLOAD_FOLDER'])
+    return send_from_directory(directory=uploads, filename=filename)
 
 @app.route('/login')
 def login():
