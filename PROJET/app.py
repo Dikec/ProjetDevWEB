@@ -43,7 +43,7 @@ def Etudiants():
             DATA['STUDENT'].append(dico) # python object to be appended.
         with open('donnees.json', 'w') as js:
             json.dump(DATA, js, indent=2)
-        return 'Merci, votre inscription a bien été prise en compte.'
+        return render_template('Remerciement.html', name = result['prenom'])
     else :
         return render_template('Etudiants.html')
 
@@ -67,6 +67,7 @@ def Entreprises():
             DATA['COMPANY'].append(dico) # python object to be appended.
         with open('donnees.json', 'w') as js:
             json.dump(DATA, js, indent=2)
+        return render_template('Remerciement.html', name = result['name'])
     return render_template('Entreprises.html')
 
 @app.route('/Contact')
