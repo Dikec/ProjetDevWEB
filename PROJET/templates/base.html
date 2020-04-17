@@ -21,8 +21,8 @@
 
     <header>
       <!-- Fixed navbar -->
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="{{ url_for('index') }}"> Rencontres Biosciences</a>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark navbar-inner">
+        <a class="navbar-brand" href="{{ url_for('index') }}"><img src="{{url_for('static', filename='groupe.jpg')}}" height ="20"> </a>
         <a class="navbar-brand" href="{{ url_for('Presentation') }}">Rencontres Biosciences</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -73,7 +73,8 @@
 
     <!-- Begin page content -->
     <main role="main" class="container">
-    {% block content %}{% endblock content %}
+    {% block content %}
+{% endblock content %}
     </main>
 
     <footer class="footer">

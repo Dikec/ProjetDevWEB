@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
 
+                    
+    <body>
+        <p>Besoin d'aide pour quelque chose ? N'hésitez pas à renseigner vos coordonnées et nous indiquer votre message. Celui-ci sera directement envoyé vers notre boîte mail.</p>
+	</body>
                     <div class="dragArea row">
                         <div class="col-md-4  form-group" data-for="name">
                             <label for="name-form1-f" class="form-control-label mbr-fonts-style display-7">Name</label>
@@ -19,8 +23,9 @@
                             <textarea name="message" data-form-field="Message" class="form-control display-7" id="message-form1-f"></textarea>
                         </div>
                         <div class="col-md-12 input-group-btn align-center">
-                            <button type="submit" class="btn btn-primary btn-form display-4">SEND FORM</button>
+                            <button type="submit" class="btn btn-primary btn-form display-4">Envoyer</button>
                         </div>
+<h2><a HREF="mailto:pedaler.sanssefatiguer@gmail.com">écrivez-nous</a></h2>
                     </div>
            
 {% endblock %}

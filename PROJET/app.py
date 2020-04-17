@@ -43,7 +43,9 @@ def Etudiants():
             DATA['STUDENT'].append(dico) # python object to be appended.
         with open('donnees.json', 'w') as js:
             json.dump(DATA, js, indent=2)
-    return render_template('Etudiants.html')
+        return 'Merci, votre inscription a bien été prise en compte.'
+    else :
+        return render_template('Etudiants.html')
 
 @app.route('/Entreprises', methods=['GET', 'POST'])
 def Entreprises():
