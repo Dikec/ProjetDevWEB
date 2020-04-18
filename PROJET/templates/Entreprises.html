@@ -4,7 +4,9 @@
 <div style="text-align: center">
 	<h1 class="mt-5">Inscription entreprises</h1>
 </div>
-
+	<div> 
+	<p> Cette page est pour les entreprises souhaitant participer à l'évenement. Merci de bien vouloir completer tout les champs demandé et de bien déposer les fichiers demandés. </p>
+	</div>
 	<form action="/Entreprises" method="post">
 	<div class="form-group row" >
 
@@ -96,7 +98,7 @@
 	<div class="form-group row" >
 	  	<label class="col-sm-4 col-form-label" for="inputDoB"> Télécharger le formulaire d'inscription </label>
 		<div>
-		<a href="{{url_for('.download_file')}}"> Formulaire d'inscription </a>
+		<a href=" {{url_for('static', filename='Formulaire_inscription_2019.pdf')}}" download> Formulaire d'inscription </a>
 		</div>
 	</div>
 

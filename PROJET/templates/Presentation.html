@@ -1,23 +1,61 @@
 {% extends 'base.html' %}
 {% block content %}
 
+
+
 <div style="text-align: center">
-    <h1 class="mt-5">Le Forum Rencontres Biosciences, qu'est-ce ? </h1>
+    <p>
+	
+	</p>
+    <img src="{{url_for('static', filename='logo.png')}}" width ="30%" height=auto align="middle">
+    <h1 class="mt-5">Le Forum Rencontres Biosciences </h1>
 </div>
         <p>	
         Le Forum Rencontres Biosciences (ou « RBS », jeu de mots reprenant le sigle bien connu en biologie de « Ribosome Binding Site ») est l'occasion pour les étudiants du département Biosciences de l'INSA de Lyon de rencontrer les représentants de différentes entreprises en lien avec la biologie. Durant cette journée, simulations d'entretiens et discussions cordiales sont au rendez-vous. L'objectif est de réaliser un rapprochement durable entre les étudiants et les entreprises du secteur.</p>
 
+	<div>
+	<h2 class="mt-5"> Entreprises</h2>
+   	 <div style="text-align: center">
+	<figure>
+  	<img src="{{url_for('static', filename='photo1.jpg')}}" alt="Presentation" width="50%" height=auto align="middle" >
+  	<figcaption> L'entreprise Assystem Care lors du forum 2019</figcaption>  
+   	</figure></div>
+	<div>
+	<p>Étudiants en cycle ingénieur, nous avons le plaisir de vous faire part de notre invitation pour la cinquième édition des "Rencontres Biosciences" (RBS) ! </p>
+	<p> Suite au succès des précédentes éditions, l’association du département Biosciences de l’INSA de Lyon renouvelle ces rencontres entre entreprises et futurs ingénieurs pour l’année 2019. La journée est organisée en deux événements distincts qui se succèdent. Le matin nous proposons aux entreprises de participer à des simulations d’entretiens avec les étudiants de 5ème, 4ème et de 3ème année. L’après midi vous pourrez participer à un forum permettant une interaction avec l’ensemble des étudiants en Biosciences. </p>
+
+	<p>Le département Biosciences forme des ingénieurs pluridisciplinaires destinés à votre secteur d'activité, grâce à deux filières de spécialisation : Biochimie & Biotechnologies et Bioinformatique & Modélisation. </p>
+
+	<p>Les RBS permettent aux professionnels et aux étudiants de se rencontrer de façon conviviale et constructive. La date a été choisie afin que l’ensemble des étudiants du département puisse être présent. Au cours de cette journée, vous aurez un espace réservé, vous permettant une interaction optimale avec les élèves-ingénieurs. Ceux-ci sont intéressés par la possibilité de trouver un stage, qui pourrait mener à un premier emploi en fonction de leur promotion. </p>
+	</div>
+	</div>
+
 	<div class="form-group row" >
 	  	
-		<a href="/pdf/Plaquette_Biosciences.pdf" download> Maquette du département BIOSCIENCES </a>
+	       <a href="{{url_for('static', filename='Plaquette_Biosciences.pdf')}}" download> Plaquette du département BIOSCIENCES </a>
 		
 	</div>
 
 	<div class="form-group row" >
-
-		<a href="/pdf/programme_RBS_2019.pdf" download> Programme du forum   </a>
+	
+		<a href= "{{url_for('static', filename= 'programme_RBS_2019.pdf')}}" download> Programme du forum </a>
 	</div>
     <div style="text-align: center">
-	    <img src="{{url_for('static', filename='photo2.jpg')}}" alt="Presentation" width="50%" height=auto align="middle">
+	<figure>
+	  <img src="{{url_for('static', filename='photo2.jpg')}}" alt="Presentation" width="50%" height=auto align="middle" >
+	  <figcaption>Titouan élève de 4BIM présentant un des projets réalisé au cours de l'année</figcaption>
+	</figure>
     </div>
+
+	<h2 class="mt-5"> Etudiants </h2>
+	<div>
+	<p> Chères étudiant, l'ABIL vous invites à venir faire le forum et si vous le souhaitez, des simulations d'entretiens avec les enteprises participantes !
+	</p>
+	<p> C'est le moment pour vous de venir découvrir les différentes entreprises avec les différents débouchés qui vous attendent à la fin de vos année dans Biosciences. Pour les 5ème années, venez décrocher des stages, pour les 4ème année venez vous familliariser avec le contact avec des professionnels, tandis que les 3ème années, c'est le moment pour vous de commencer à comprendre concretement ce que l'on peut attendre de vous dans le monde professionnel. </p>
+	<p> Durant la matinée de cette journée, banalisé par le département, vous aurez l'occasion de faire des simulations d'entretiens avec des vrais professionnel, ainsi qu'avoir un retour personnalisé sur cette expérience.</p>
+	<p> L'après-midi, venez prendre un petit gouté, boire un café et découvrir toutes les entreprises, pour certaines, vous pouvez vous inscrire à leur base de donnée pour recevoir des demandes de stage,pour d'autre récuperer des goudies.
+	</div>
+	</div>
+
+	
 {% endblock %}

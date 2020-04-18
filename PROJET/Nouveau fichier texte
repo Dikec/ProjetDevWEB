@@ -1,0 +1,26 @@
+{
+  "STUDENT": [
+    {
+      "id": 0,
+      "name": "Doe",
+      "prenom": "John",
+      "group": "3BIM",
+      "entretien": "Non"
+    },
+    {
+      "id": 1,
+      "name": "Doe",
+      "prenom": "Marie",
+      "group": "3BB",
+      "entretien": "Oui"
+    },
+    {
+      "id": 2,
+      "name": "dd",
+      "prenom": "ss",
+      "group": "3BIM",
+      "entretien": "Oui"
+    }],
+  "COMPANY": [
+]
+}

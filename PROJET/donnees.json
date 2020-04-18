@@ -37,16 +37,16 @@
     },
     {
       "id": 5,
-      "name": "s",
+      "name": "a",
       "prenom": "x",
       "group": "3BB",
       "entretien": "Non"
     },
     {
       "id": 6,
-      "name": "z",
-      "prenom": "z",
-      "group": "3BB",
+      "name": "Jean",
+      "prenom": "Jeanne",
+      "group": "5BIM",
       "entretien": "Oui"
     },
     {
@@ -58,6 +58,13 @@
     },
     {
       "id": 8,
+      "name": "z",
+      "prenom": "z",
+      "group": "3BB",
+      "entretien": "Oui"
+    },
+    {
+      "id": 9,
       "name": "Dupont",
       "prenom": "Alex",
       "group": "3BB",
@@ -91,6 +98,16 @@
     },
     {
       "id": 1,
+      "name": "Sanofi",
+      "secteur": "Biom\u00e9dical",
+      "effectif": "sup250",
+      "entretien": "Oui",
+      "forum": "Oui",
+      "responsable": "Philipe Lejeune",
+      "mail": "p.lejeune@sanofi.net"
+    },
+    {
+      "id": 2,
       "name": "jacqui",
       "secteur": "jona",
       "effectif": "inf250",
@@ -100,7 +117,7 @@
       "mail": "s"
     },
     {
-      "id": 1,
+      "id": 3,
       "name": "jacqui",
       "secteur": "jona",
       "effectif": "inf250",

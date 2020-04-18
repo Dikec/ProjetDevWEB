@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="mt-5">
+	Membre inscrit {{name}}
+</h1>
+<div class = list>
+	{% for caracteristique in info %}
+  		<li>{{caracteristique}} : {{info[caracteristique]}}</li>
+	{% endfor %}
+</div>
+{% endblock %}
