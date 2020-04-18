@@ -1,13 +1,11 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask import Flask
-from api import SITE_API # Set API dev in an another file
 from flask_login import LoginManager, UserMixin
 
 #Ceeating the app
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '9OLWxND4o83j4K4iuopO'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
-app.register_blueprint(SITE_API)
 
 #Creating the database dor Admin
 db = SQLAlchemy()

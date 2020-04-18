@@ -3,12 +3,12 @@
 
 from flask import Flask, Blueprint, request, flash
 # ./img/photo2.jpg"
-from flask import abort, request, make_response, send_from_directory
+from flask import abort, request, make_response
 from flask import render_template, redirect, url_for
 from flask_login import login_required, current_user, login_user, logout_user
 from werkzeug.security import generate_password_hash, check_password_hash
 
-from data import USERS,COMPANY, STUDENT
+from data import COMPANY, STUDENT
 
 import json 
 
@@ -16,19 +16,18 @@ from __init__ import create_app, db, app, Admin
 
 db.create_all(app=create_app())
 
-@app.route('/help')
-def help():
-    return render_template('help.html')
-
 @app.route('/')
 def index():
     app.logger.debug('serving root URL /')
     return render_template('Presentation.html')
 
-
 @app.route('/Etudiants', methods=['GET', 'POST'])
 def Etudiants():
     if request.method=='POST':
+        cv_file = request.files['cv']
+        nom_cv_file = cv_file.filename
+        cv_file.save('./Etudiants_CV/'+nom_cv_file)
+
         result = request.form
         print(result)
         dico = {}
@@ -67,13 +66,16 @@ def Entreprises():
             DATA['COMPANY'].append(dico) # python object to be appended.
         with open('donnees.json', 'w') as js:
             json.dump(DATA, js, indent=2)
+
+        form_file = request.files['form_filename']
+        nom_form_file = form_file.filename
+        form_file.save('./Entreprises_inscription/'+nom_form_file)
+        logo_file = request.files['logo']
+        nom_logo_file = logo_file.filename
+        logo_file.save('./Entreprises_logo/'+nom_logo_file)
+
         return render_template('Remerciement.html', name = result['name'])
     return render_template('Entreprises.html')
-
-@app.route('/Entreprises')
-def download_file():
-	path = "/pdf/Formulaire_inscription_2019.pdf"
-	return send_file(path, as_attachment=True)
 
 @app.route('/Contact')
 def Contact():
@@ -82,11 +84,6 @@ def Contact():
 @app.route('/Presentation')
 def Presentation():
     return render_template('Presentation.html')
-
-@app.route('/pdf/<path:filename>', methods=['GET', 'POST'])
-def download(filename):
-    uploads = os.path.join(current_app.root_path, app.config['UPLOAD_FOLDER'])
-    return send_from_directory(directory=uploads, filename=filename)
 
 @app.route('/login')
 def login():
@@ -148,18 +145,6 @@ def admin(lien=None):
     for i in range(0,len(company)):
         if (entreprise[i]==lien) :
             return render_template('membre.html',info=COMPANY[i],name=lien)
-
-
-@app.route('/search/', methods=['GET'])
-def search():
-    search = request.args.get('pattern','')
-    personnes=[]
-    for user in USERS : 
-        if search in user["name"] :
-            personnes.append(user["name"])
-    return render_template('users.html',names=personnes)
-    users(username=personnes)
-
 
 
 # Script starts here

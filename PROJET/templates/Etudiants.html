@@ -5,9 +5,9 @@
 	<h1 class="mt-5">Inscription étudiants</h1>
 </div>
 	<div> 
-	<p> Sur cette page, les étudiants peuvent s'inscrire à l'evenement. Vous pouvez vous inscrire pour les simulations d'entretiens, sachant qu'elles sont obligatoire pour les 5A, et ensuite prioritaire pour les 4A. </p>
+	<p> Sur cette page, les étudiants peuvent s'inscrire à l'évènement. Vous pouvez vous inscrire pour les simulations d'entretiens, sachant qu'elles sont obligatoires pour les 5A, et ensuite prioritaire pour les 4A. </p>
 	</div>
-	<form action="/Etudiants" method="post">
+	<form action="/Etudiants" method="post" enctype="multipart/form-data">
 	    <div class="form-group row" >
 
     	    <label class="col-sm-2 col-form-label" for="staticName"> Nom </label>
@@ -66,7 +66,7 @@
 
 
     	<div class="form-group row" >
-    	  	<label class="col-sm-4 col-form-label" for="inputDoB"> Voulez vous passer un entretien ?</label>
+    	  	<label class="col-sm-4 col-form-label" for="inputDoB"> Voulez-vous passer un entretien ?</label>
     	</div>
     	<div class="form-group row" >
     	  	<div class="col-sm-3">
@@ -78,8 +78,8 @@
     	</div>	
 
     	<div class="form-group row" >
-    	  	<label class="col-sm-4 col-form-label" for="inputDoB"> Déposez votre C.V</label>
-    		<input type="file" name="C.V"/>
+    	  	<label class="col-sm-4 col-form-label" for="inputDoB"> Déposez votre CV</label>
+    		<input type="file" name="cv"/>
     	</div>
 
     	<div class="form-group row" >

@@ -7,26 +7,10 @@ Get a thumbnail : https://en.wikipedia.org/w/api.php?action=query&titles=Alan%20
 
 import json
 
-from datetime import date, datetime
-
-with open('data.json') as js:
-    DATA = json.load(js)
-    USERS = DATA.get('USERS')
-    FIELDS = DATA.get('FIELDS')
-
 with open('donnees.json') as js:
     DATA = json.load(js)
     STUDENT = DATA.get('STUDENT')
     COMPANY = DATA.get('COMPANY')
-
-def get_fields(u_id):
-    for field, ids in FIELDS.items():
-        if u_id in ids:
-            yield field
-
-
-for user in USERS:
-    user.update({'fields': [f for f in get_fields(user.get('id'))]})
 
 # Script starts here
 if __name__ == '__main__':

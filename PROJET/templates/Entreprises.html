@@ -5,9 +5,9 @@
 	<h1 class="mt-5">Inscription entreprises</h1>
 </div>
 	<div> 
-	<p> Cette page est pour les entreprises souhaitant participer à l'évenement. Merci de bien vouloir completer tout les champs demandé et de bien déposer les fichiers demandés. </p>
+	<p> Cette page est pour les entreprises souhaitant participer à l'évènement. Merci de bien vouloir completer tous les champs demandés et de bien déposer les fichiers demandés. </p>
 	</div>
-	<form action="/Entreprises" method="post">
+	<form action="/Entreprises" method="post" enctype="multipart/form-data">
 	<div class="form-group row" >
 
 	    <label class="col-sm-2 col-form-label" for="staticName"> Nom de l'entreprise </label>
@@ -104,12 +104,12 @@
 
 	<div class="form-group row" >
 	  	<label class="col-sm-4 col-form-label" for="inputDoB"> Déposez le formulaire d'inscription </label>
-		<input type="file" name="Formulaire d'inscription"/>
+		<input type="file" name="form_filename"/>
 	</div>
 
 	<div class="form-group row" >
 	  	<label class="col-sm-4 col-form-label" for="inputDoB"> Déposez le logo de l'entreprise </label>
-		<input type="file" name="Logo de l'entreprise"/>
+		<input type="file" name="logo"/>
 	</div>
 
 	<div class="form-group row" >
