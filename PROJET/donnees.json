@@ -5,6 +5,7 @@
       "name": "Doe",
       "prenom": "John",
       "group": "3BIM",
+      "mail": "john.doe@insa-lyon.Fr",
       "entretien": "Non"
     },
     {
@@ -12,83 +13,7 @@
       "name": "Doe",
       "prenom": "Marie",
       "group": "3BB",
-      "entretien": "Oui"
-    },
-    {
-      "id": 2,
-      "name": "dd",
-      "prenom": "ss",
-      "group": "3BIM",
-      "entretien": "Oui"
-    },
-    {
-      "id": 3,
-      "name": "ss",
-      "prenom": "ss",
-      "group": "4BB",
-      "entretien": "Non"
-    },
-    {
-      "id": 4,
-      "name": "s",
-      "prenom": "x",
-      "group": "3BB",
-      "entretien": "Non"
-    },
-    {
-      "id": 5,
-      "name": "a",
-      "prenom": "x",
-      "group": "3BB",
-      "entretien": "Non"
-    },
-    {
-      "id": 6,
-      "name": "Jean",
-      "prenom": "Jeanne",
-      "group": "5BIM",
-      "entretien": "Oui"
-    },
-    {
-      "id": 7,
-      "name": "z",
-      "prenom": "z",
-      "group": "3BB",
-      "entretien": "Oui"
-    },
-    {
-      "id": 8,
-      "name": "z",
-      "prenom": "z",
-      "group": "3BB",
-      "entretien": "Oui"
-    },
-    {
-      "id": 9,
-      "name": "Dupont",
-      "prenom": "Alex",
-      "group": "3BB",
-      "entretien": "Oui"
-    },
-    {
-      "id": 9,
-      "name": "test",
-      "prenom": "test",
-      "group": "3BB",
-      "entretien": "Oui"
-    },
-    {
-      "id": 10,
-      "name": "test",
-      "prenom": "test",
-      "group": "3BB",
-      "entretien": "Oui"
-    },
-    {
-      "id": 12,
-      "name": "ssa",
-      "prenom": "dd",
-      "group": "3BB",
+      "mail": "marie.doe@insa-lyon.Fr",
       "entretien": "Oui"
     }
   ],
@@ -112,66 +37,6 @@
       "forum": "Oui",
       "responsable": "Philipe Lejeune",
       "mail": "p.lejeune@sanofi.net"
-    },
-    {
-      "id": 2,
-      "name": "jacqui",
-      "secteur": "jona",
-      "effectif": "inf250",
-      "entretien": "Oui",
-      "forum": "Non",
-      "responsable": "ss",
-      "mail": "s"
-    },
-    {
-      "id": 3,
-      "name": "jacqui",
-      "secteur": "jona",
-      "effectif": "inf250",
-      "entretien": "Oui",
-      "forum": "Non",
-      "responsable": "ss",
-      "mail": "s"
-    },
-    {
-      "id": 3,
-      "name": "z",
-      "secteur": "z",
-      "effectif": "inf250",
-      "entretien": "Oui",
-      "forum": "Oui",
-      "responsable": "z",
-      "mail": "z"
-    },
-    {
-      "id": 5,
-      "name": "azd",
-      "secteur": "f",
-      "effectif": "inf250",
-      "entretien": "Oui",
-      "forum": "Non",
-      "responsable": "ee",
-      "mail": "ssd"
-    },
-    {
-      "id": 6,
-      "name": "fe",
-      "secteur": "zd",
-      "effectif": "inf250",
-      "entretien": "Non",
-      "forum": "Oui",
-      "responsable": "dd",
-      "mail": "dd"
-    },
-    {
-      "id": 7,
-      "name": "fe",
-      "secteur": "zd",
-      "effectif": "inf250",
-      "entretien": "Non",
-      "forum": "Oui",
-      "responsable": "dd",
-      "mail": "dd"
     }
   ]
 }

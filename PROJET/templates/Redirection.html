@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div style="text-align: center">
+        <h1 class="mt-5">Oups ! Une inscription a déjà été réalisée avec l'adresse mail renseignée dans le formulaire d'inscription ({{mail}}).</h1>
+    </div>
+
+
+    <p>Nous remarquons que vous êtes déjà présent dans votre base de données. Vous êtes donc probablement déjà inscrit !</p>
+    <p>Si vous êtes certain de ne pas avoir effectué d'inscription sur notre site avec cette adresse mail ({{mail}}), n'hésitez pas à nous contacter via la page <a href="./Contact">Contact</a>, afin que nous éclaircissions ce mystère !</p>
+
+{% endblock %}

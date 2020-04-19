@@ -7,6 +7,7 @@ from flask import abort, request, make_response
 from flask import render_template, redirect, url_for
 from flask_login import login_required, current_user, login_user, logout_user
 from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.utils import secure_filename
 
 from data import COMPANY, STUDENT
 
@@ -15,6 +16,10 @@ import json
 from __init__ import create_app, db, app, Admin
 
 db.create_all(app=create_app())
+ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'} # extensions acceptees quand on charge des fichiers. 
+
+def allowed_file(filename): # vérifier que le fichier est valide, avec la bonne extension
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 @app.route('/')
 def index():
@@ -25,23 +30,29 @@ def index():
 def Etudiants():
     if request.method=='POST':
         cv_file = request.files['cv']
-        nom_cv_file = cv_file.filename
+        if not allowed_file(cv_file.filename):
+            return render_template('Etudiants.html')
+        nom_cv_file = secure_filename(cv_file.filename) # fonction qui sécurise
         cv_file.save('./Etudiants_CV/'+nom_cv_file)
 
-        result = request.form
-        print(result)
+        result = request.form # récuperer le post
+        for student in STUDENT : # check if mail adress already exists in DB
+            if result['mail'].lower() == student['mail'].lower():
+                return render_template('Redirection.html', mail = result['mail'])
+
         dico = {}
         dico['id'] = len(STUDENT)
         dico["name"] = result['name']
         dico["prenom"] = result['prenom']
         dico["group"] = result['group'] # 3BIM ou 3BB ou ...
+        dico["mail"] = result['mail']
         dico['entretien'] = result['entretien'] # entretien : oui ou non
 
         with open('donnees.json', 'r') as json_file: 
             DATA = json.load(json_file)
             DATA['STUDENT'].append(dico) # python object to be appended.
-        with open('donnees.json', 'w') as js:
-            json.dump(DATA, js, indent=2)
+        with open('donnees.json', 'w') as json_file:
+            json.dump(DATA, json_file, indent=2)
         return render_template('Remerciement.html', name = result['prenom'])
     else :
         return render_template('Etudiants.html')
@@ -50,7 +61,10 @@ def Etudiants():
 def Entreprises():
     if request.method=='POST':
         result = request.form
-        print(result)
+        for company in COMPANY : # check if mail adress already exists in DB
+            if result['mail'].lower() == company['mail'].lower():
+                return render_template('Redirection.html', mail = result['mail'])
+
         dico = {}
         dico['id'] = len(COMPANY)
         dico['name'] = result['name']
@@ -64,18 +78,27 @@ def Entreprises():
         with open('donnees.json', 'r') as json_file: 
             DATA = json.load(json_file)
             DATA['COMPANY'].append(dico) # python object to be appended.
-        with open('donnees.json', 'w') as js:
-            json.dump(DATA, js, indent=2)
+        with open('donnees.json', 'w') as json_file:
+            json.dump(DATA, json_file, indent=2)
 
         form_file = request.files['form_filename']
-        nom_form_file = form_file.filename
+        if not allowed_file(form_file.filename):
+            return render_template('Entreprises.html')
+        nom_form_file = secure_filename(form_file.filename)
         form_file.save('./Entreprises_inscription/'+nom_form_file)
+
         logo_file = request.files['logo']
-        nom_logo_file = logo_file.filename
+        if not allowed_file(logo_file.filename):
+            return render_template('Entreprises.html')
+        nom_logo_file = secure_filename(logo_file.filename)
         logo_file.save('./Entreprises_logo/'+nom_logo_file)
 
         return render_template('Remerciement.html', name = result['name'])
     return render_template('Entreprises.html')
+
+@app.route('/Redirection')
+def Redirection():
+    return render_template("Redirection.html")
 
 @app.route('/Contact')
 def Contact():
