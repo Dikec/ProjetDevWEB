@@ -1,9 +1,12 @@
 Ce projet a pour but de créer un site web pour mettre en place le forum RBS de Biosciences qui a lieu chaque année. 
 
 Presentation.html
-    Présente les RBS
+    Présente l'évenment des RBS, aux entreprises comme aux étudiants, avec des images, et la possibilité de récupérer des fichier pdf qui comportent des informations supplémentaire sur l'évenement ou le département Biosciences.
 
 Entreprise.html
+	
+    Cette page permet aux entreprises de s'incrire à l'évenement en répondant à quelques questions pour aider à l'organisation de l'évenement.
+
     Vérification que les fichiers ajoutés par l'utilisateur sont corrects (bonne extension). 
     Les fichiers déposés par les entreprises sont déposés dans le dossier 'Entreprises_inscription' et 'Entreprises_logo'.
     Une fois le formulaire rempli, on redirige vers la page de remerciements.
@@ -11,6 +14,9 @@ Entreprise.html
     Vérifie que l'adresse mail n'a jamais été utilisée. Si c'est le cas, redirige vers la page "Redirection.html"
 
 Etudiants.html
+    
+    Cette page permet aux étudiants de s'incrire à l'évenement en répondant à quelques questions pour aider à l'organisation de l'évenement.
+
     Vérification que le fichier ajouté par l'utilisateur (cv) est correct (bonne extension). 
     Les fichiers déposés par les étudiants sont déposés dans le dossier 'Etudiants_CV'.
     Une fois le formulaire rempli, on redirige vers la page de remerciements (Remerciement.html).
